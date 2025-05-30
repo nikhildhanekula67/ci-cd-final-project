@@ -94,9 +94,7 @@ def update_counters(name):
 
     if name not in COUNTER: 
         return abort(status.HTTP_404_NOT_FOUND, f"Counter {name} does not exist")
-
     COUNTER[name] += 1
-
     counter = COUNTER[name]
     return jsonify(name=name, counter=counter)
 
