@@ -20,7 +20,6 @@ spec:
         set -eu
         echo "Removing all files from ${WORKSPACE_SOURCE_PATH} ..."
         if [ -d "${WORKSPACE_SOURCE_PATH}" ]; then
-          # Be cautious with these rm -rf commands
           rm -rf "${WORKSPACE_SOURCE_PATH:?}/"*
           rm -rf "${WORKSPACE_SOURCE_PATH}/".[!.]*
           rm -rf "${WORKSPACE_SOURCE_PATH}/"..?*
@@ -50,4 +49,4 @@ spec:
         echo "Installing requirements and running tests..."
         python -m pip install --upgrade pip wheel
         pip install -r requirements.txt
-        nosetests $(params.args)
+        nosetests "$(params.args)"
